@@ -1,0 +1,26 @@
+{
+    "name": "maissoftware/sms-yii2",
+    "description": "Send sms through Twilio in a yii2 framework",
+    "type": "yii2-extension",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Juan Carlos Pinillos",
+            "email": "jcpinillos@maissoftware.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "yiisoft/yii2": "~2.0.6",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "twilio/sdk": "^5.14",
+        "kartik-v/yii2-widget-select2": "*",
+        "kartik-v/yii2-grid": "*",
+        "johnitvn/yii2-ajaxcrud": "*"
+    },
+    "autoload": {
+        "par-4": {
+            "maissoftware\\sms\\": "src"
+        }
+    }
+}
