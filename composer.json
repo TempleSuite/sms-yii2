@@ -20,10 +20,7 @@
     },
     "autoload": {
         "par-4": {
-            "maissoftware\\sms\\": "src/"
+            "maissoftware\\sms\\": "src"
         }
-    },
-    "extra": {
-        "bootstrap": "maissoftware\\sms\\Bootstrap"
     }
 }
