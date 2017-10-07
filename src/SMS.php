@@ -1,7 +1,6 @@
 <?php
 
 namespace maissoftware\sms;
-use Yii;
 
 /**
  * sms module definition class
@@ -28,7 +27,6 @@ class SMS extends \yii\base\Module
     {
         parent::init();
         // custom initialization code goes here
-        Yii::setAlias("@maissoftware/sms", __DIR__);
     }
 
     public function getSid(){
