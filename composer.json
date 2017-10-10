@@ -19,7 +19,7 @@
         "johnitvn/yii2-ajaxcrud": "*"
     },
     "autoload": {
-        "par-4": {
+        "psr-4": {
             "maissoftware\\sms\\": "src"
         }
     }
