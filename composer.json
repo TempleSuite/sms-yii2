@@ -20,12 +20,7 @@
     },
     "autoload": {
         "par-4": {
-            "maissoftware\\sms\\": "src/"
+            "maissoftware\\sms\\": "src"
         }
-    },
-    "scripts": {
-        "post-package-install": [
-            "maissoftware\\sms\\Installer::postPackageInstall"
-        ]
     }
 }
