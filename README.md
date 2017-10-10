@@ -8,18 +8,10 @@
 * [Grid Module](http://demos.krajee.com/grid)
 * [yii2-ajaxcrud](http://www.yiiframework.com/extension/yii2-ajaxcrud/)
 
-#### Using Composer
-
-The recommended method for installing the dependencies is via Composer.<br>
-
-* ``composer require twilio/sdk``
-* ``composer require kartik-v/yii2-widget-select2 "@dev"``
-* ``composer require kartik-v/yii2-grid "@dev"``
-* ``composer require --prefer-dist johnitvn/yii2-ajaxcrud "*"``
-
 ## Installation
 
-The recommended method for installing sms-twilio is via Composer.
+The recommended method for installing sms-yii2 is via Composer.  This will also install 
+the dependencies automatically.
 
 ``composer require maissoftware/sms-yii2 "@dev"``
 
@@ -35,6 +27,12 @@ The recommended method for installing sms-twilio is via Composer.
     'phoneColumn' => 'phone_number', //The name of your phone column in the user table in database
     'phoneTable' => 'phone_number', //Used if phone numbers are stored in a different table in database
     'phoneUserIdColumn' => 'entity_id', //The name of the user id column in the phone table
+],
+```
+* The Grid module dependency also needs to be added to your configuration file if it is not already there.
+```php
+'gridview'=> [
+    'class' => '\kartik\grid\Module'
 ],
 ```
 * To use the default MVC of the module and not wrap it, change the class path to the vendor.
