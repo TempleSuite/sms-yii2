@@ -11,9 +11,20 @@
 ## Installation
 
 The recommended method for installing sms-yii2 is via Composer.  This will also install 
-the dependencies automatically.
-
-``composer require maissoftware/sms-yii2 "@dev"``
+the dependencies automatically.  To be able to install this package, you need to tell your project's 
+composer.json to search this repository.  To do that, add the following to your composer.json file.
+```php
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "git@github.com:TempleSuite/sms-yii2.git"
+    }
+],
+```
+Then you can run the following command: 
+``composer require maissoftware/sms-yii2 "@dev"`` <br>
+\* NOTE: If you do not have access to this private package with the use of an SSH key, the 
+installation will fail.
 
 #### Configuration
 * Add the module to your project config file.  For example, "project/frontend/config/main.php"

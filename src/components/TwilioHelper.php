@@ -36,8 +36,6 @@ class TwilioHelper {
      */
     public static function sendGroup($users, $message){
         //Throws an exception if the message being sent is empty
-        //echo strlen($message);
-        //return strlen($message);
         if(strlen($message) < 1){
             throw new TwilioException();
         }
@@ -55,16 +53,16 @@ class TwilioHelper {
                 $phoneNumbers = self::getPhoneNumbers($user, $tableColumns);
 
                 if(sizeof($phoneNumbers) > 0){
-                    $message = 'from the send group with phoneNumbers > 0';
+                    //$message = 'from the send group with phoneNumbers > 0';
                     foreach ($phoneNumbers as $phoneNumber){
                         $binding[] = '{"binding_type":"sms", "address":"+1' . $phoneNumber->phone_number . '"}';
                     }
                 }else{
-                    $message = 'from the send group with phoneNumbers < 0';
+                    //$message = 'from the send group with phoneNumbers < 0';
                     $binding[] = '{"binding_type":"sms", "address":"+1' . $user->$phone . '"}';
                 }
             }else{
-                $message= "from the send group when a phone table does not exist";
+                //$message= "from the send group when a phone table does not exist";
                 $binding[] = '{"binding_type":"sms", "address":"+1' . $user->$phone . '"}';
             }
         }

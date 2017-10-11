@@ -144,7 +144,7 @@ class MessagesController extends Controller
                                     $tableColumns = $table->getColumnNames();
                                     $phoneNumbers = TwilioHelper::getPhoneNumbers($user, $tableColumns);
                                     if(sizeof($phoneNumbers) > 0){
-                                        $model->message = 'from send one with phoneNumber > 0';
+                                        //$model->message = 'from send one with phoneNumber > 0';
                                         foreach ($phoneNumbers as $phoneNumber){
                                             //$model->message = 'This is from the phone numbers';
                                             TwilioHelper::sendOne($phoneNumber->phone_number, $model->message);
@@ -156,7 +156,7 @@ class MessagesController extends Controller
                                             $message->save();
                                         }
                                     }else{
-                                        $model->message = 'from send one with phoneNumber < 0';
+                                        //$model->message = 'from send one with phoneNumber < 0';
                                         TwilioHelper::sendOne($user->$phone, $model->message);
                                         $message = new Messages();
                                         $message->user_id = $user->id;
@@ -166,7 +166,7 @@ class MessagesController extends Controller
                                         $message->save();
                                     }
                                 }else{
-                                    $model->message = 'from the user table when there is no phone table';
+                                    //$model->message = 'from the user table when there is no phone table';
                                     TwilioHelper::sendOne($user->$phone, $model->message);
                                     $message = new Messages();
                                     $message->user_id = $user->id;
