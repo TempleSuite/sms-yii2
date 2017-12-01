@@ -30,23 +30,18 @@ installation will fail.
 * Add the module to your project config file.  For example, "project/frontend/config/main.php"
 ```php
 'sms' => [
-    'class' => 'frontend\modules\sms\SMS', //Path to module
-    'sid' => 'AC#########################', //Your Twilio Account SID
-    'token' => '###############################', //Your Twilio Token
-    'notifyServiceSid' => 'IS######################', //Your Twilio SMS Notify Service SID
-    'twilioNumber' => '+1##########', //Your Twilio phone number
+    'class' => 'maissoftware\sms\SMS', //Path to module
     'phoneColumn' => 'phone_number', //The name of your phone column in the user table in database
     'phoneTable' => 'phone_number', //Used if phone numbers are stored in a different table in database
     'phoneUserIdColumn' => 'entity_id', //The name of the user id column in the phone table
 ],
 ```
+* Use the create view to add your Twilio account information to your database
 * The Grid module dependency also needs to be added to your configuration file if it is not already there.
 ```php
 'gridview'=> [
     'class' => '\kartik\grid\Module'
 ],
 ```
-* To use the default MVC of the module and not wrap it, change the class path to the vendor.
-``class' => 'maissoftware\sms\SMS',``
-* make sure you also run the migrations to create the messages table.
+* make sure you also run the migrations to create the required tables.
     * Migration will only work if you have a "user" table with the id column "id"

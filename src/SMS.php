@@ -12,10 +12,10 @@ class SMS extends \yii\base\Module
      */
     public $controllerNamespace = 'maissoftware\sms\controllers';
 
-    public static $sid = '';
-    public static $token = '';
-    public static $notifyServiceSid;
-    public static $twilioNumber = '';
+    //public static $sid = '';
+    //public static $token = '';
+    //public static $notifyServiceSid;
+    //public static $twilioNumber = '';
     public static $phoneColumn = '';
     public static $phoneTable = '';
     public static $phoneUserIdColumn = '';
@@ -30,7 +30,7 @@ class SMS extends \yii\base\Module
         // custom initialization code goes here
     }
 
-    public function getSid(){
+/*    public function getSid(){
         return SMS::$sid;
     }
 
@@ -60,7 +60,7 @@ class SMS extends \yii\base\Module
 
     public function setTwilioNumber($twilioNumber){
         SMS::$twilioNumber = $twilioNumber;
-    }
+    }*/
 
     public function getPhoneColumn(){
         return SMS::$phoneColumn;

@@ -8,6 +8,7 @@ use maissoftware\sms\models\User;
 use Twilio\Rest\Client;
 use maissoftware\sms\SMS;
 use maissoftware\sms\models\PhoneNumber;
+use maissoftware\sms\models\TwilioConfiguration;
 //use yii\db\Schema;
 
 class TwilioHelper {
@@ -19,12 +20,13 @@ class TwilioHelper {
      * @return \Twilio\Rest\Api\V2010\Account\MessageInstance The response from Twilio
      */
     public static function sendOne($cellNumber, $message){
-
-        $client = new Client(SMS::$sid, SMS::$token);
+        $config = TwilioConfiguration::find()->where(['id' => 1])->one();
+        $client = new Client($config->sid, $config->token);
+        //$client = new Client(SMS::$sid, SMS::$token);
 
         //the arguments in the create function are: the cell number with '+1' prefixed, an array with the from value
         //being your twilio number and the body value your message
-        return $client->messages->create('+1' . $cellNumber, ['from' => SMS::$twilioNumber, 'body' => $message]);
+        return $client->messages->create('+1' . $cellNumber, ['from' => $config->twilio_number, 'body' => $message]);
     }
 
     /**
@@ -39,8 +41,10 @@ class TwilioHelper {
         if(strlen($message) < 1){
             throw new TwilioException();
         }
+        $config = TwilioConfiguration::find()->where(['id' => 1])->one();
+
         //Creates a Client with Account SID and Token
-        $client = new Client(SMS::$sid, SMS::$token);
+        $client = new Client($config->sid, $config->token);
         //Initializes the array for the toBinding attribute used in the Notify Service
         $binding = [];
         $phone = SMS::$phoneColumn;
@@ -67,7 +71,7 @@ class TwilioHelper {
             }
         }
 
-        return $client->notify->services(SMS::$notifyServiceSid)->notifications->create([
+        return $client->notify->services($config->notify_service_sid)->notifications->create([
             "toBinding" => $binding,
             'body' => $message
         ]);
