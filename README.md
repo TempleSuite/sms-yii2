@@ -22,7 +22,7 @@ composer.json to search this repository.  To do that, add the following to your 
 ],
 ```
 Then you can run the following command: 
-``composer require maissoftware/sms-yii2 "@dev"`` <br>
+``composer require maissoftware/sms-yii2 "dev-master"`` <br>
 \* NOTE: If you do not have access to this private package with the use of an SSH key, the 
 installation will fail.
 
